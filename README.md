@@ -11,7 +11,7 @@
 
 
 #### 介绍
-整活项目
+整活项目，作者B站主页：[作者B站主页链接](https://space.bilibili.com/1326571075)
 
 #### 软件架构
 jquery+mdui实现
