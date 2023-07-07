@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>欢迎</title>
+    
+    <link rel="stylesheet" href="files/css/mdui.css">
+    <script src="files/js/mdui.js"></script>
+    
+    <script src="files/jquery.js"></script>
+    
+    <script>
+        function f(){
+            $('#h').attr('step',Math.floor(Math.random() * (500 - 110 + 1)) + 110);
+        }
+        $(document).ready(function() {
+            num = 0;
+            var timer = setInterval(function() {
+                $("#start_page").slideUp(1000);
+            }, 1000);
+            $("#check").click(function() {
+                if(Number($('#re').text()) > 70) {
+                    $("#result").text("年龄太大了！");
+                }else if(Number($('#re').text()) < 13){
+                    $("#result").text("年龄太小了！");
+                }else{
+                    $("#result").text("年龄正确！");
+                    timer = setInterval(function() {
+                        window.location.href="3.html";
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        .d h1,h2,p,b,button{
+            text-align: center;
+            items-align: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #start_page {
+            top:0;
+            position: fixed;
+            background-color: #6d50f0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            items-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            z-index: 1;
+        }
+        #start_page h1 {
+            margin-bottom: 20px;
+            font-size: 60px;
+        }
+        #start_page h3 {
+            font-size: 30px;
+        }
+        h1 {
+            margin-top: 30px;
+            font-size: 24px;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 10px;
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="start_page">
+        <h1>注册一下，全是难关</h1>
+        <h3>注册仅需要亿分钟</h3>
+    </div>
+
+    <div class='d'>
+        <h1>欢迎，花<s>几亿个世纪</s>几分钟注册一下吧！</h1>
+        <p>请输入年龄：<b style='color:red;' id='re'>0</b></p>
+        <label class="mdui-slider">
+            <input id='h' type="range" step="900" min="-10000" max="10000" oninput="$('#re').text(this.value);f()"/>
+        </label>
+        <br>
+        <center><button style='width:200px;background-color:red;' id="check">提交</button></center>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
